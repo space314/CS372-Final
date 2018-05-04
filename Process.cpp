@@ -12,7 +12,7 @@ void SplashWater::cast() const
 	std::cout << "You splash water... its ineffective." << std::endl;
 }
 
-
+//If you can't cast a basic spell, defaults to no spell.
 bool LowLevelProcess::handle(std::shared_ptr<User> user)
 {
 	if (user->get_lvl() >= 1)
@@ -34,7 +34,7 @@ void BasicWaterSpell::cast() const
 	std::cout << "You move water in the air... it looks cool? ... though ineffective." << std::endl;
 }
 
-
+//Can't quite manage a powerfull spell, well, maybe you can cast a weaker version.
 bool PowerfulProcess::handle(std::shared_ptr<User> user) 
 {
 	if (user->get_lvl() >= 2)
@@ -57,7 +57,8 @@ void MiniFlood::cast() const
 }
 
 
-
+//If you're god, this should be a piece of cake, if not well, maybe you can succefully cast
+//a lower level spell.
 bool GodProcess::handle(std::shared_ptr<User> user)
 {
 	if (user->get_lvl() >= 3)
@@ -69,7 +70,7 @@ bool GodProcess::handle(std::shared_ptr<User> user)
 	else if (user->get_lvl() == 2)
 	{
 		std::cout << "You close your eyes and concentrate..." << std::endl;
-		std::cout << "Dispite you best efforts, you are unable conjure enough magic to perform the tast" << std::endl;
+		std::cout << "Dispite you best efforts, you are unable conjure enough magic to perform the task" << std::endl;
 		nextProcess(user);
 		return false;
 	}
@@ -84,7 +85,7 @@ bool GodProcess::handle(std::shared_ptr<User> user)
 
 void WorldFlood::cast() const
 {
-	std::cout << "The land falls beneath the sea," << std::endl;
-	std::cout << "all are instanteously kill by powerful storms..." << std::endl;
-	std::cout<< "highly effective... also slight overkill." << std::endl;
+	std::cout << "The land falls beneath the sea." << std::endl;
+	std::cout << "All are instanteously killed by powerful storms..." << std::endl;
+	std::cout<< "Highly effective... also slight overkill." << std::endl;
 }
